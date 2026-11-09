@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YASIR BIN MUDASSIR - VAULT</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0a0a0a;color:#fff;padding:20px}
+.top{text-align:center;padding:20px 10px}
+.top h1{color:#F6E8A6;font-size:32px}
+.top p{color:#00F5FF;margin-top:8px;font-weight:bold}
+.bnb{background:#FFD700;color:#000;padding:15px;border-radius:30px;font-weight:bold;cursor:pointer;text-align:center;margin:20px auto;max-width:500px;font-size:18px}
+.addr{text-align:center;color:#00FF88;margin-top:-10px;font-size:14px}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid #444;background:#1a1a1a;color:#fff;font-size:16px;margin:20px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#1A1A1A;border:1px solid #C9A86A;border-radius:16px;padding:16px}
+.card h3{color:#F6E8A6;margin:8px 0}
+.card p{color:#aaa;font-size:13px}
+.btn{background:#00FF88;color:#000;text-align:center;padding:10px;border-radius:10px;font-weight:bold;margin-top:10px;display:block;text-decoration:none}
+.footer{text-align:center;color:#666;margin:30px 0;font-size:13px}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.top h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="top">
+<h1>YASIR BIN MUDASSIR</h1>
+<p>@YasirBinMudassir</p>
+<p style="color:#aaa;font-weight:normal">ALL PDFs • ONE PLACE • 24/7</p>
+</div>
+
+<div class="bnb" onclick="copyBNB()">💛 SEND BNB - SUPPORT VAULT</div>
+<div class="addr" id="addr">0xdac5...a046 ✅ VERIFIED - Tap to Copy</div>
+
+<input class="search" id="search" onkeyup="filterPDF()" placeholder="🔍 Search PDF... e.g. Trading, Islam, Business">
+
+<div class="grid" id="grid"></div>
+
+<div class="footer">THE ONLY ONE SQUAD - @YasirBinMudassir<br>Vault by Yasir Bin Mudassir</div>
+
+<script>
+const pdfs=[
+["Atomic Habits","https://drive.google.com"],
+["Rich Dad Poor Dad","https://drive.google.com"],
+["Psychology of Money","https://drive.google.com"],
+["Deep Work","https://drive.google.com"],
+["Think & Grow Rich","https://drive.google.com"],
+["48 Laws of Power","https://drive.google.com"],
+["Quran - Translation","https://drive.google.com"],
+["Trading Price Action","https://drive.google.com"],
+["Crypto & BNB Guide","https://drive.google.com"],
+];
+const grid=document.getElementById('grid');
+function show(list){
+grid.innerHTML="";
+list.forEach(p=>{
+grid.innerHTML+=`<div class="card"><div>📕 PDF</div><h3>${p[0]}</h3><p>PDF - Click to Open</p><a class="btn" href="${p[1]}" target="_blank">OPEN PDF ↗</a></div>`;
+});
+}
+show(pdfs);
+function filterPDF(){
+let q=document.getElementById('search').value.toLowerCase();
+show(pdfs.filter(p=>p[0].toLowerCase().includes(q)));
+}
+function copyBNB(){
+navigator.clipboard.writeText("0xdac5...a046");
+alert("BNB Address Copy Ho Gaya! @YasirBinMudassir");
+}
+</script>
+</body>
+</html>
